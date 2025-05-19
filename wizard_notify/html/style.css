@@ -1,0 +1,116 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    pointer-events: none; /* allow clicks through */
+}
+
+#notify-container {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 320px;
+    pointer-events: auto; /* enable pointer inside container */
+}
+
+#notify-container.top-right {
+    top: 20px;
+    right: 20px;
+    align-items: flex-end;
+}
+
+#notify-container.top-left {
+    top: 20px;
+    left: 20px;
+    align-items: flex-start;
+}
+
+#notify-container.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    align-items: flex-end;
+}
+
+#notify-container.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    align-items: flex-start;
+}
+
+#notify-container.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
+
+.notify {
+    min-width: 250px;
+    background: #333;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    opacity: 0.95;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    pointer-events: auto;
+    position: relative;
+    user-select: none;
+}
+
+.notify.success {
+    background-color: #4caf50;
+}
+
+.notify.error {
+    background-color: #f44336;
+}
+
+.notify.info {
+    background-color: #2196f3;
+}
+
+.notify .counter {
+    background: rgba(0,0,0,0.3);
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 4px 8px;
+    margin-left: 10px;
+    user-select: none;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutUp {
+    from {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.fadeInDown {
+    animation-name: fadeInDown;
+}
+
+.fadeOutUp {
+    animation-name: fadeOutUp;
+}
