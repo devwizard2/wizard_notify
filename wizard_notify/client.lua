@@ -17,7 +17,6 @@ local function sendNotification(data)
     })
 end
 
--- Command to preview all 3 types, each with their own sound
 RegisterCommand("testnoti", function()
     local notifyTypes = {
         {
@@ -49,7 +48,6 @@ RegisterCommand("testnoti", function()
     end)
 end)
 
--- General event for triggering from other scripts
 RegisterNetEvent("wizard_notify:show")
 AddEventHandler("wizard_notify:show", function(data)
     data.type = data.type or "info"
